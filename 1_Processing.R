@@ -171,7 +171,6 @@ for (i in c(19, 20, 21, 22, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69)) {
 # Creating Dummies for some other key vars
 # Must identify these variables in "names" and manually recode factor levels
 
-
 hh$ftch_tm <- mapvalues(hh$ftch_tm, 
                         from = c("Less than 30 minutes", "30 - 60 minutes", "More than 2 hours",
                                  "More than 1 hour", "More than 3 hours", ""), 
