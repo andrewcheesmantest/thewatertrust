@@ -7,6 +7,9 @@
 
 # TODO:     Dec 9, 2016   -   TODO: create comprehensive summary on top of site_agg - simple aggregate metrics across B/M for each var
 #                         -   TODO: maybe standardize format so that graphing is easy
+#                         -   TODO: fix differences btw HH/WP-level information (functional HH v functional WP)
+#                         -   TODO: include new site-survey level denominator for summary
+#                         -   TODO: bucket functionality data (functional, partially functional, not functional)
 
 library(sqldf)
 library(plyr)
