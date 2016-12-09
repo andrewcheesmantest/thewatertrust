@@ -53,6 +53,10 @@ fplot <- ggplot(sa[is.na(sa$fscr_rcd) == F,], aes(x = factor(1), fill = fscr_rcd
 ############################################
 # E. Coli
 
+for (i in 87:90) {
+  sa[is.na(sa[,i]) == T, i] <- 0
+}
+
 sa$eca <- NA
 sa[sa$ecoli_risk_l == 1, "eca"] <- "1. Low"
 sa[sa$ecoli_risk_i == 1, "eca"] <- "2. Medium"
@@ -83,7 +87,7 @@ eplot <- ggplot(sa[is.na(sa$eca) == F,], aes(x = factor(1), fill = eca)) +
         legend.background = element_blank(),
         legend.margin = unit(.2, "cm"),
         legend.text = element_text(size = rel(1)),
-        
+
         panel.border = element_blank()) +
   ggtitle("Exposure to E. Coli")
 
@@ -134,7 +138,6 @@ hplot <- ggplot(dout2, aes(x = srvy_tp, y = rt, fill = srvy_tp)) +
         panel.border = element_blank()) +
   ggtitle("Health Outcomes")
 
-
 ############################################
 # Outputting 
 
@@ -149,6 +152,51 @@ dev.off()
 png(file = "health.png", width = 2000)
 hplot
 dev.off()
+
+############################################
+# Fetch Time
+
+
+
+ftplot <- ggplot(dout2, aes(x = srvy_tp, y = rt, fill = srvy_tp)) +
+  geom_bar(stat = "identity") + 
+  geom_text(data=dout2 ,aes(x = srvy_tp, label = percent(rt)), vjust = -.5) +
+  theme_bw() +
+  scale_fill_manual("Survey Type", 
+                    values = twtp[2:1],
+                    labels = c("Baseline", "Monitoring")) +
+  theme(plot.title = element_text(size = rel(2)),
+        axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        
+        legend.position = "bottom",
+        legend.background = element_blank(),
+        legend.margin = unit(.2, "cm"),
+        legend.text = element_text(size = rel(1)),
+        
+        panel.border = element_blank()) +
+  ggtitle("Health Outcomes")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ############################################
 # Management (Lat Cov, Mgmt Sust, Fin Sust)

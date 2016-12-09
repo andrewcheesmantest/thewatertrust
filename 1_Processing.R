@@ -5,6 +5,9 @@
 # Finalize:   Nov 12, 2016  -   Finalizing buckets and logic; making script more stable
 # Update:     Nov 16, 2016  -   Added ecoli buckets; made final dataset preparation more stable
 
+# TODO:     Dec 9, 2016   -   TODO: create comprehensive summary on top of site_agg - simple aggregate metrics across B/M for each var
+#                         -   TODO: maybe standardize format so that graphing is easy
+
 library(sqldf)
 library(plyr)
 
@@ -172,7 +175,7 @@ for (i in c(19, 20, 21, 22, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69)) {
 hh$ftch_tm <- mapvalues(hh$ftch_tm, 
                         from = c("Less than 30 minutes", "30 - 60 minutes", "More than 2 hours",
                                  "More than 1 hour", "More than 3 hours", ""), 
-                        to = c("ft_<30M", "ft_30-60M", "ft_120M+", "ft_60M+", "ft_180M+", ""))
+                        to = c("ft_lt_30M", "ft_30_60M", "ft_gt_120M", "ft_gt_60M", "ft_gt_180M", ""))
 
 hh$san_fac <- mapvalues(hh$san_fac, 
                         from = c("No facility - use the bush or field",
