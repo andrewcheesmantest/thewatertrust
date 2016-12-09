@@ -1,8 +1,7 @@
 ####################################################################################################
 # Produces a comprehensive summary from site_agg.csv 
-# Begin:    Dec 9, 2016
-# TODO:     Dec 9, 2016   -   TODO: create comprehensive summary on top of site_agg - simple aggregate metrics across B/M for each var
-#                         -   TODO: maybe standardize format so that graphing is easy
+# Begin:    Dec 9, 2016   - Create a process that rolls everything up to some basic levels for aggregating into a KPI-style dashboard
+# Finalize: Dec 9, 2016   - Finished. Pretty hacky.
 
 sa <- read.csv("site_agg.csv", stringsAsFactors = F, colClasses = c(NA, NA, NA, NA, NA, "character", NA, NA, NA, NA, NA, NA, 
                                                                     NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
@@ -59,7 +58,7 @@ colnames(compout) <- c("Var",
                        "11 - B", "11 - M",
                        "All - B", "All - M")
 
-
+write.csv(compout, "comprehensive_summary.csv", row.names = F)
 
 
 
