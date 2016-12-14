@@ -14,9 +14,9 @@
 library(sqldf)
 library(plyr)
 
-hh <- read.csv("HH.csv", stringsAsFactors = F)
-wp <- read.csv("Site.csv", stringsAsFactors = F)
-wq <- read.csv("WQ.csv", stringsAsFactors = F)
+hh <- read.csv("hh_survey_20161214.csv", stringsAsFactors = F)
+wp <- read.csv("site_quality_20161214.csv", stringsAsFactors = F)
+wq <- read.csv("water_quality_20161214.csv", stringsAsFactors = F)
 
 ####################################################################################################
 # Hand-recoding mWater's shitty field names; see "names.xlsx" for a full mapping
