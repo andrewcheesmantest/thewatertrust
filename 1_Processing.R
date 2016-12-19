@@ -5,10 +5,10 @@
 # Finalize:   Nov 12, 2016  -   Finalizing buckets and logic; making script more stable
 # Update:     Nov 16, 2016  -   Added ecoli buckets; made final dataset preparation more stable
 
-# TODO:     Dec 9, 2016   -   TODO: create comprehensive summary on top of site_agg - simple aggregate metrics across B/M for each var
-#                         -   TODO: maybe standardize format so that graphing is easy
-#                         -   TODO: fix differences btw HH/WP-level information (functional HH v functional WP)
-#                         -   TODO: include new site-survey level denominator for summary
+# TODO:     Dec 9, 2016   -   TODO: create comprehensive summary on top of site_agg - simple aggregate metrics across B/M for each var DONE
+#                         -   TODO: maybe standardize format so that graphing is easy 
+#                         -   TODO: fix differences btw HH/WP-level information (functional HH v functional WP) DONE
+#                         -   TODO: include new site-survey level denominator for summary 
 #                         -   TODO: bucket functionality data (functional, partially functional, not functional)
 
 library(sqldf)
@@ -107,7 +107,7 @@ wq1 <- sqldf("select
              count(tst_rslt_ecoli_amt) as tst_rslt_ecoli_amt_tt,
              sum(tst_rslt_fcoli_amt) as tst_rslt_fcoli_amt,
              sum(case when tst_rslt_fcoli_amt is null then 1 else 0 end) as tst_rslt_fcoli_amt_na,
-             count(tst_rslt_fcoli_amt) as tst_rslt_fcoli_amt_tt
+             count(tst_rslt_fcoli_amt) as tst_rslt_fcoli_amt_tt,
              
              from wq 
              
