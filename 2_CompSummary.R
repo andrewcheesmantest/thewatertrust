@@ -195,7 +195,7 @@ kpis_out <- cbind(c("Sites",
                     "E.Coli Risk - Very High"),
                   kpis)
 
-
+write.csv(kpis_out, "Short_Summary.csv")
 
 
 
