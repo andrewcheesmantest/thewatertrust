@@ -81,10 +81,10 @@ kpis1 <- rbind(strip[c(1:3),])
 for (i in 1:8) {kpis1[,i] <- as.character(kpis1[,i])}
 
 kpis2 <- rbind(# Water appearance, smell, etc.
-  strip[4,] / strip[1,],
-  strip[5,] / strip[1,],
-  strip[6,] / strip[1,],
-  strip[7,] / strip[1,])
+  strip[4,] / strip[2,],
+  strip[5,] / strip[2,],
+  strip[6,] / strip[2,],
+  strip[7,] / strip[2,])
 
 for (i in 1:8) {kpis2[,i] <- percent(kpis2[,i])}
 
@@ -101,20 +101,20 @@ kpis3 <- rbind(# Health outcomes
 for (i in 1:8) {kpis3[,i] <- percent(kpis3[,i])}
 
 kpis4 <- rbind(# Fetch Time, reordered to make sense
-  strip[19,] / strip[,2],
-  strip[20,] / strip[,2],
-  strip[22,] / strip[,2],
-  strip[21,] / strip[,2],
-  strip[23,] / strip[,2])
+  strip[19,] / strip[2,],
+  strip[20,] / strip[2,],
+  strip[22,] / strip[2,],
+  strip[21,] / strip[2,],
+  strip[23,] / strip[2,])
 
 for (i in 1:8) {kpis4[,i] <- percent(kpis4[,i])}
 
 kpis5 <- rbind(# Sanitation Facilities
-  strip[25,] / strip[,2],
-  strip[26,] / strip[,2],
-  strip[27,] / strip[,2],
-  strip[28,] / strip[,2],
-  strip[29,] / strip[,2])
+  strip[25,] / strip[2,],
+  strip[26,] / strip[2,],
+  strip[27,] / strip[2,],
+  strip[28,] / strip[2,],
+  strip[29,] / strip[2,])
 
 for (i in 1:8) {kpis5[,i] <- percent(kpis5[,i])}
 
