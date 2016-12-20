@@ -12,12 +12,11 @@ Status as of Dec 20 2016:
 2. Draft visualizations complete (for style, at least - some metrics still need to be built)
 3. Comprehensive summary (KPI report) draft complete
 4. Short summary complete and calculations errors resolved
-5. Working on aggregation issues
+5. Fixed aggregation issues for display in KPI format
 
 TODO: 
 
 - Break functionality into bucketed counts
-- Create version of Short Summary that aggregates at the site level before rolling higher.
 
 Maybe TODO:
 
@@ -32,4 +31,4 @@ Finished TODO: (12/20/2016)
 
 - Investigate and fix logic around the functionality indicators and other counts in the short summary
 - Add a site + survey level count if necessary, as it relates to functionality counts
-
+- Create version of Short Summary that aggregates at the site level before rolling higher
