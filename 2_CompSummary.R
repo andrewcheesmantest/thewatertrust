@@ -247,34 +247,62 @@ sa <- read.csv("site_agg_2.csv", stringsAsFactors = F, colClasses = c(NA, NA, NA
                                                                       NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
                                                                       NA, NA, NA, NA, NA, NA, NA, NA, NA, NA))
 
+# Splitting by Baseline/Monitoring and newboth
+
 hldr <- data.frame(srvy_tp = rep(c("b", "m"), 4),
                    newboth = c("00", "00", "01", "01", "10", "10", "11", "11"))
+
+for (i in 7:9) {
+  hldr <- merge(hldr, 
+                aggregate(sa[,i] ~ srvy_tp + newboth, sa, FUN = sum),
+                by = c("srvy_tp", "newboth"),
+                all.x = T)
+  colnames(hldr)[i-4] <- colnames(sa)[i]
+}
 
 for (i in 10:40) {
   hldr <- merge(hldr, 
                 aggregate(sa[,i] ~ srvy_tp + newboth, sa, FUN = mean),
                 by = c("srvy_tp", "newboth"),
                 all.x = T)
-  colnames(hldr)[i-7] <- colnames(sa)[i]
-  
+  colnames(hldr)[i-4] <- colnames(sa)[i]
   }
 
+# Overall
 
 hldr2 <- data.frame(srvy_tp = c("b", "m"),
                     newboth = c("All", "All"))
+
+for (i in 7:9) {
+  hldr2 <- merge(hldr2, 
+                 aggregate(sa[,i] ~ srvy_tp, sa, FUN = sum),
+                 by = c("srvy_tp"),
+                 all.x = T)
+  colnames(hldr2)[i-4] <- colnames(sa)[i]
+}
+
 for (i in 10:40) {
   hldr2 <- merge(hldr2, 
                 aggregate(sa[,i] ~ srvy_tp, sa, FUN = mean),
                 by = c("srvy_tp"),
                 all.x = T)
-  colnames(hldr2)[i-7] <- colnames(sa)[i]
-  
+  colnames(hldr2)[i-4] <- colnames(sa)[i]
 }
 
 hldr3 <- rbind(hldr, 
                hldr2)
 
 hldr4 <- hldr3[c(1, 5, 2, 6, 3, 7, 4, 8, 9, 10),]
+
+for (k in 6:36) {
+  
+  if (colnames(hldr4)[k] == "strd_fees") {
+    hldr4[,k] <- formatC(hldr4[,k], format="d", big.mark=',')
+  } else {
+    hldr4[,k] <- percent(hldr4[,k])
+  }
+  
+}
 
 hldr5 <- data.frame(t(hldr4))
 hldr6 <- data.frame(row.names(hldr5),
@@ -288,13 +316,45 @@ colnames(hldr6) <- c("Measure",
                      "All - B", "All - M")
 
 hldr6 <- hldr6[c(-1, -2),]
+row.names(hldr6) <- NULL
 
-#####            START HERE            #####
-# TODO build in counts for sites, hh, ppl  #
-# join counts to hldr 6                    #
+hldr6 <- hldr6[c(1:18,20,19, 21:34),]
+hldr6 <- hldr6[c(-16, -22),]
 
+hldr6$Measure <- c("Sites",
+                   "Households",
+                   "People",
+                   "WP - Taste",
+                   "WP - Smell",
+                   "WP - Color",
+                   "WP - Cloudy",
+                   "HO - Diarrhea",
+                   "HO - Typhoid",
+                   "HO - Malaria",
+                   "HO - Dysentery",
+                   "HO - Respiratory Issues",
+                   "HO - Skin Rash",
+                   "HO - Eye Infection",
+                   "HO - Worms",
+                   "FT - LT 30M",
+                   "FT - 30-60M",
+                   "FT - 60-120M",
+                   "FT - 120-180M",
+                   "FT - GT 180M",
+                   "SF - Bush",
+                   "SF - Improvised Latrine",
+                   "SF - Pit",
+                   "SF - Latrine",
+                   "SF - No, Neighbor's",
+                   "% Functionality, Site",
+                   "% Functionality, Water Quality",
+                   "MG - Stored Fees, USh",
+                   "E.Coli Risk - Low",
+                   "E.Coli Risk - Intermediate",
+                   "E.Coli Risk - High",
+                   "E.Coli Risk - Very High")
 
-
+write.csv(hldr6, "Short_Summary_2.csv", row.names = F)
 
 
 
