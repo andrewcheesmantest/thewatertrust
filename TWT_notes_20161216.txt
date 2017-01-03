@@ -1,0 +1,35 @@
+
+comp_summary:
+
+split functionality into two measures:
+- overall, bucketed counts for most recent iteration
+- average (status quo)
+
+reliability: 
+- HH reliability - "in past 2 weeks, how many days were you unable to obtain water from this source?"
+
+vars to remove:
+- nitrates
+- nitrites
+- arsenic
+- fl
+
+operational report:
+
+- discrepancies between reports - site-level flags?
+- social side: health outcomes, how people use the well (safe water chain)
+- build in safe water chain indicators
+- logic definitions for operational report - next step; look for WP/WQ/HH conflicts
+- vars to include: 	1. date of most recent WP or WQ
+					2. functionality - most recent
+					3. reliability within past year
+					4. flag for overlapping WQ/WP
+
+rainy season: 	large: feb to may
+				small: aug to oct
+
+
+
+
+
+
