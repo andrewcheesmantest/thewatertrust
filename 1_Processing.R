@@ -107,7 +107,7 @@ wq1 <- sqldf("select
              count(tst_rslt_ecoli_amt) as tst_rslt_ecoli_amt_tt,
              sum(tst_rslt_fcoli_amt) as tst_rslt_fcoli_amt,
              sum(case when tst_rslt_fcoli_amt is null then 1 else 0 end) as tst_rslt_fcoli_amt_na,
-             count(tst_rslt_fcoli_amt) as tst_rslt_fcoli_amt_tt,
+             count(tst_rslt_fcoli_amt) as tst_rslt_fcoli_amt_tt
              
              from wq 
              
