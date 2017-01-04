@@ -62,6 +62,7 @@ colnames(wq) <- c('depl', 'enum', 'stts', 'resp_cd', 'drft_dt', 'subm_dt', 'twt_
                   'tst_rslt_nitrite_amt', 'tst_rslt_nitrite_unts', 'tst_rslt_nitrate_amt', 'tst_rslt_nitrate_unts', 'tst_rslt_fl_amt', 'tst_rslt_fl_unts', 
                   'tst_rslt_arsnc_amt', 'tst_rslt_arsnc_unts', 'tst_rslt_ecoli_amt', 'tst_rslt_ecoli_unts', 'tst_rslt_fcoli_amt', 'tst_rslt_fcoli_unts')
 
+
 ####################################################################################################
 # Aggregating the Water Quality Survey
 # Assumes that all surveys are monitoring; averages values across surveys but takes the max submit date
